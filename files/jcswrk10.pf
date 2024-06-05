@@ -1,0 +1,12 @@
+     A**********T*Name******RLen++TDpB******Functions***************************
+     A**********R*F***************A*********C***********************************
+     A
+     A                                      UNIQUE
+     A          R JCSWRK10R1
+     A
+     A            W10LJOBNAM    10A         COLHDG('Last Known' 'Job' 'Name'   )
+     A            W10LRUNUSR    10A         COLHDG('Last Known' 'Job' 'User'   )
+     A            W10LJOB#       6A         COLHDG('Last Known' 'Job' 'Number' )
+     A
+     A          K W10LJOBNAM
+     A

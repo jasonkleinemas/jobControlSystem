@@ -1,0 +1,619 @@
+     A****************************************************************
+     A*                                                              *
+     A*                                                              *
+     A*                                                              *
+     A*                                                              *
+     A****************************************************************
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      PRINT
+     A                                      ALTHELP(CA01)
+     A                                      HELP
+     A          R JCSSFL01                  SFL
+     A            INOPT          1A  B 10  3COLOR(YLW)
+     A            OUTDESC       40A  O 10  5COLOR(WHT)
+     A            ATRSTAT        1A  P
+     A            OUTSTAT       10A  O 10 46DSPATR(&ATRSTAT)
+     A            ATRJOBCLAS     1A  P
+     A            OUTJOBCLAS    23A  O 10 57DSPATR(&ATRJOBCLAS)
+     A            HIDJOBNAME    10A  H
+     A          R JCSCTL01                  SFLCTL(JCSSFL01)
+     A                                      SFLSIZ(0011)
+     A                                      SFLPAG(0010)
+     A                                      CF03
+     A                                      CF05
+     A                                      CF06
+     A                                      CF13
+     A                                      ROLLUP
+     A                                      CF11
+     A                                      CF10
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A                                      ERASE(JCSSFL01)
+     A  30                                  SFLDSP
+     A  35                                  SFLDSPCTL
+     A  33                                  SFLCLR
+     A  34                                  SFLEND(*MORE)
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A            CTL01REC#      4S 0H      SFLRCDNBR
+     A                                  6  5'JCS job1 Status:'
+     A            ATRSTATUS      1A  P
+     A            JCSSTATUS     10A  O  6 22DSPATR(&ATRSTATUS)
+     A                                  6 35'Started:'
+     A            ATRSTARTED     1A  P
+     A            JCSSTARTED    26A  O  6 44DSPATR(&ATRSTARTED)
+     A                                  7  5'JCS job2 Status:'
+     A            ATRSTATUS2     1A  P
+     A            JCSSTATUS2    10A  O  7 22DSPATR(&ATRSTATUS2)
+     A                                  7 35'Started:'
+     A            ATRSTARTE2     1A  P
+     A            JCSSTARTE2    26A  O  7 44DSPATR(&ATRSTARTE2)
+     A                                  9  5'Description'
+     A                                  9 46'Status'
+     A                                  9 57'Run Time Description'
+     A          R JCSCPY1
+     A                                      CF03
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                 10  2'Job description:.'
+     A            OLDDESC       50A  O 10 20COLOR(WHT)
+     A                                  8  2'Job Name: . . . .'
+     A            OLDJOBNAME    10A  O  8 20COLOR(WHT)
+     A                                 13  2'New Job Name: . . . .'
+     A            ATRJOBNAME     1A  P
+     A            DSPJOBNAME    10A  B 13 24DSPATR(&ATRJOBNAME)
+     A                                      COLOR(YLW)
+     A                                 15  2'New Job description:.'
+     A            ATRJOBDESC     1A  P
+     A            DSPDESC       50A  B 15 24DSPATR(&ATRJOBDESC)
+     A                                      COLOR(YLW)
+     A                                      CHECK(LC)
+     A          R JCSDLT1
+     A                                      CF03
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A            FLD001         1A  I  7  2DSPATR(ND)
+     A                                  8  2'Job Name: . . . .'
+     A            DSPJOBNAME    10A  O  8 20COLOR(WHT)
+     A                                 10  2'Job description:.'
+     A            DSPDESC       50A  O 10 20COLOR(WHT)
+     A          R JCSDSP1
+     A                                      CF03
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  6  2'Monitor this job:'
+     A            DSPACTIVE      1A  O  6 20COLOR(WHT)
+     A                                  6 23'(Y/N)'
+     A                                  7  2'Job description:.'
+     A            DSPDESC       50A  O  7 20COLOR(WHT)
+     A                                  8  2'Job Name: . . . .'
+     A            DSPJOBNAME    10A  O  8 20COLOR(WHT)
+     A                                  8 31'This is unique value not blank.'
+     A                                  9  2'Run class:. . . .'
+     A            DSPCLASSDS    50A  O  9 20COLOR(WHT)
+     A                                 11  2'Enter These as you would on the co-
+     A                                      mmand line.'
+     A                                 12  2'Command To Run:'
+     A            DSPRUNCMD    223A  O 12 18COLOR(WHT)
+     A                                 16  2'If this is left blank the ENDJOB c-
+     A                                      ommand will be used.'
+     A                                 17  2'Command to stop:'
+     A            DSPKILLCMD   222A  O 17 19COLOR(WHT)
+     A          R JCSDSP2
+     A                                      CF03
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A            DSPCLASSD2    10A  H
+     A                                  7  2'Job description: . . . . .'
+     A            DSPJOBD       10A  O  7 29COLOR(WHT)
+     A                                  8 11'Library:. . . . .'
+     A            DSPJOBDLIB    10A  O  8 30COLOR(WHT)
+     A                                  9  2'Job queue:       . . . . .'
+     A            DSPJOBQ       10A  O  9 29COLOR(WHT)
+     A                                 10 11'Library:. . . . .'
+     A            DSPJOBQLIB    10A  O 10 30COLOR(WHT)
+     A                                 11  2'Job priority (ON JOBQ):. .'
+     A            DSPJOBPTY      5A  O 11 29COLOR(WHT)
+     A                                 12  2'Output priority (ON OUTQ):'
+     A            DSPOUTPTY      5A  O 12 29COLOR(WHT)
+     A                                 13  2'Print device:. . . . . . .'
+     A            DSPPRTDEV     10A  O 13 29COLOR(WHT)
+     A                                 14  2'Out queue:.  . . . . . . .'
+     A            DSPOUTQ       10A  O 14 29COLOR(WHT)
+     A                                 15  6'Library: . . . . . . .'
+     A            DSPOUTQLIB    10A  O 15 30COLOR(WHT)
+     A                                 16  2'User:. . . . . . . . . . .'
+     A            DSPRUNUSER    10A  O 16 29COLOR(WHT)
+     A                                 17  2'Print text:. . . . . . . .'
+     A            DSPPRTTXT     30A  O 17 29COLOR(WHT)
+     A                                 19  2'Routing data:'
+     A            DSPRTGDTA     60A  O 19 16COLOR(WHT)
+     A                                 20  2'Run Priority in SBS: . . .'
+     A            DSPJOBRUN      5   O 20 29COLOR(WHT)
+     A          R JCSDSP3
+     A                                      CF03
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  7  2'System library list: . . .'
+     A            DSPSYSLIBL    10A  O  7 30COLOR(YLW)
+     A                                  8  2'Current library: . . . . .'
+     A            DSPCURLIB     10A  O  8 30COLOR(YLW)
+     A                                  9  2'Initial library list:. . .'
+     A            DSPINLLIBL    10A  O  9 30COLOR(YLW)
+     A                                 10  2'Message logging Level: . .'
+     A            DSPMSGLOGL     5A  O 10 30COLOR(WHT)
+     A                                 11 15'Severity: . .'
+     A            DSPMSGLOGS     6A  O 11 30COLOR(WHT)
+     A                                 12 19'Text: . .'
+     A            DSPMSGLOGT     7A  O 12 30COLOR(WHT)
+     A                                 13  2'Log CL program commands: .'
+     A            DSPLOGCLPG     5A  O 13 30COLOR(WHT)
+     A                                 14  2'Inquiry message reply: . .'
+     A            DSPINQMSGR     8A  O 14 30COLOR(WHT)
+     A                                 16  2'Allow display by WRKSBMJOB:'
+     A            DSPDSPSBMJ     4A  O 16 30COLOR(WHT)
+     A                                 18  2'Message queue: . . . . . .'
+     A            DSPMSGQ       10A  O 18 30COLOR(WHT)
+     A                                 19  9'Library:. . . . . .'
+     A            DSPMSGQLIB    10A  O 19 32COLOR(WHT)
+     A          R JCSEDT1
+     A                                      CF03
+     A                                      CF04
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  6  2'Monitor this job:'
+     A            ATRACTIVE      1A  P
+     A            DSPACTIVE      1A  B  6 20DSPATR(&ATRACTIVE)
+     A                                      COLOR(YLW)
+     A                                  6 23'(Y/N)'
+     A                                  7  2'Job description:.'
+     A            ATRDESC        1A  P
+     A            DSPDESC       50A  B  7 20DSPATR(&ATRDESC)
+     A                                      COLOR(YLW)
+     A                                      CHECK(LC)
+     A                                  8  2'Job Name: . . . .'
+     A            DSPJOBNAME    10A  O  8 20COLOR(WHT)
+     A                                  8 31'This is unique value not blank.'
+     A                                  9  2'Run class:. . . .'
+     A            INRUNCLASS     1A  B  9 20COLOR(YLW)
+     A                                  9 23'+ To select a different run class.'
+     A            DSPCLASSDS    50A  O 10 23COLOR(WHT)
+     A            DSPCLASSD2    10A  H
+     A                                 11  2'Enter These as you would on the co-
+     A                                      mmand line.'
+     A                                 12  2'Command To Run:'
+     A            DSPRUNCMD    223A  B 12 18COLOR(YLW)
+     A                                 16  2'If this is left blank the ENDJOB c-
+     A                                      ommand will be used.'
+     A                                 17  2'Command to stop:'
+     A            DSPKILLCMD   222A  B 17 19COLOR(YLW)
+     A          R JCSEDT2
+     A                                      CF03
+     A                                      CF04
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A            DSPCLASSD2    10A  H
+     A                                  7  2'Job description: . . . . .'
+     A            DSPJOBD       10A  B  7 29COLOR(YLW)
+     A            DEFJOBD       10A  O  7 42COLOR(WHT)
+     A                                  8 11'Library:. . . . .'
+     A            DSPJOBDLIB    10A  B  8 30COLOR(YLW)
+     A            DEFJOBDLIB    10A  O  8 43COLOR(WHT)
+     A                                  9  2'Job queue:       . . . . .'
+     A            DSPJOBQ       10A  B  9 29COLOR(YLW)
+     A            DEFJOBQ       10A  O  9 42COLOR(WHT)
+     A                                 10 11'Library:. . . . .'
+     A            DSPJOBQLIB    10A  B 10 30COLOR(YLW)
+     A            DEFJOBQLIB    10A  O 10 43COLOR(WHT)
+     A                                 11  2'Job priority (ON JOBQ):. .'
+     A            DSPJOBPTY      5A  B 11 29COLOR(YLW)
+     A            DEFJOBPTY      5A  O 11 42COLOR(WHT)
+     A                                 12  2'Output priority (ON OUTQ):'
+     A            DSPOUTPTY      5A  B 12 29COLOR(YLW)
+     A            DEFOUTPTY      5A  O 12 42COLOR(WHT)
+     A                                 13  2'Print device:. . . . . . .'
+     A            DSPPRTDEV     10A  B 13 29COLOR(YLW)
+     A            DEFPRTDEV     10A  O 13 42COLOR(WHT)
+     A                                 14  2'Out queue:.  . . . . . . .'
+     A            DSPOUTQ       10A  B 14 29COLOR(YLW)
+     A            DEFOUTQ       10A  O 14 42COLOR(WHT)
+     A                                 15  6'Library: . . . . . . .'
+     A            DSPOUTQLIB    10A  B 15 30COLOR(YLW)
+     A            DEFOUTQLIB    10A  O 15 43COLOR(WHT)
+     A                                 16  2'User:. . . . . . . . . . .'
+     A            DSPRUNUSER    10A  B 16 29COLOR(YLW)
+     A            DEFRUNUSER    10A  O 16 42COLOR(WHT)
+     A                                 17  2'Print text:. . . . . . . .'
+     A            DSPPRTTXT     30A  B 17 29COLOR(YLW)
+     A            DEFPRTTXT     30A  O 18 42COLOR(WHT)
+     A                                 19  2'Routing data:'
+     A            DSPRTGDTA     60A  B 19 16COLOR(YLW)
+     A                                 20  2'Run Priority in SBS: . . .'
+     A            ATRJOBRUN      1A  P
+     A            DSPJOBRUN      5   B 20 29DSPATR(&ATRJOBRUN)
+     A                                      COLOR(YLW)
+     A                                 20 42'*Same'
+     A                                      COLOR(WHT)
+     A                                 20 49'11 - 99'
+     A          R JCSEDT3
+     A                                      CF03
+     A                                      CF04
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  7  2'System library list: . . .'
+     A            DSPSYSLIBL    10A  B  7 30COLOR(YLW)
+     A            DEFSYSLIBL    10A  O  7 44COLOR(WHT)
+     A                                  8  2'Current library: . . . . .'
+     A            DSPCURLIB     10A  B  8 30COLOR(YLW)
+     A            DEFCURLIB     10A  O  8 44COLOR(WHT)
+     A                                  9  2'Initial library list:. . .'
+     A            DSPINLLIBL    10A  B  9 30COLOR(YLW)
+     A            DEFINLLIBL    10A  O  9 44COLOR(WHT)
+     A                                 10  2'Message logging Level: . .'
+     A            DSPMSGLOGL     5A  B 10 30COLOR(YLW)
+     A            DEFMSGLOGL     5A  O 10 44COLOR(WHT)
+     A                                 11 15'Severity: . .'
+     A            DSPMSGLOGS     6A  B 11 30COLOR(YLW)
+     A            DEFMSGLOGS     6A  O 11 44COLOR(WHT)
+     A                                 12 19'Text: . .'
+     A            DSPMSGLOGT     7A  B 12 30COLOR(YLW)
+     A            DEFMSGLOGT     7A  O 12 44COLOR(WHT)
+     A                                 13  2'Log CL program commands: .'
+     A            DSPLOGCLPG     5A  B 13 30COLOR(YLW)
+     A            DEFLOGCLPG     5A  O 13 44COLOR(WHT)
+     A                                 14  2'Inquiry message reply: . .'
+     A            DSPINQMSGR     8A  B 14 30COLOR(YLW)
+     A            DEFINQMSGR     8A  O 14 44COLOR(WHT)
+     A                                 16  2'Allow display by WRKSBMJOB:'
+     A            DSPDSPSBMJ     4A  B 16 30COLOR(YLW)
+     A            DEFDSPSBMJ     4A  O 16 43COLOR(WHT)
+     A                                 18  2'Message queue: . . . . . .'
+     A            DSPMSGQ       10A  B 18 30COLOR(YLW)
+     A            DEFMSGQ       10A  O 18 43COLOR(WHT)
+     A                                 19  9'Library:. . . . . .'
+     A            DSPMSGQLIB    10A  B 19 32COLOR(YLW)
+     A            DEFMSGQLIB    10A  O 19 44COLOR(WHT)
+     A          R JCSNEW1
+     A                                      CF03
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  6  2'Monitor this job:'
+     A            ATRACTIVE      1A  P
+     A            DSPACTIVE      1A  B  6 20DSPATR(&ATRACTIVE)
+     A                                      COLOR(YLW)
+     A                                  6 23'(Y/N)'
+     A                                  7  2'Job description:.'
+     A            ATRDESC        1A  P
+     A            DSPDESC       50A  B  7 20DSPATR(&ATRDESC)
+     A                                      COLOR(YLW)
+     A                                      CHECK(LC)
+     A                                  8  2'Job Name: . . . .'
+     A            ATRJOBNAME     1A  P
+     A            DSPJOBNAME    10A  B  8 20DSPATR(&ATRJOBNAME)
+     A                                      COLOR(YLW)
+     A                                  8 31'This is unique value not blank.'
+     A                                  9  2'Run class:. . . .'
+     A            INRUNCLASS     1A  B  9 20COLOR(YLW)
+     A                                  9 23'+ To select a different run class.'
+     A            DSPCLASSDS    50A  O 10 23COLOR(WHT)
+     A            DSPCLASSD2    10A  H
+     A                                 11  2'Enter These as you would on the co-
+     A                                      mmand line.'
+     A                                 12  2'Command To Run:'
+     A            DSPRUNCMD    223A  B 12 18COLOR(YLW)
+     A                                 16  2'If this is left blank the ENDJOB c-
+     A                                      ommand will be used.'
+     A                                 17  2'Command to stop:'
+     A            DSPKILLCMD   222A  B 17 19COLOR(YLW)
+     A          R JCSNEW2
+     A                                      CF03
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A            DSPCLASSD2    10A  H
+     A                                  7  2'Job description: . . . . .'
+     A            DSPJOBD       10A  B  7 29COLOR(YLW)
+     A            DEFJOBD       10A  O  7 42COLOR(WHT)
+     A                                  8 11'Library:. . . . .'
+     A            DSPJOBDLIB    10A  B  8 30COLOR(YLW)
+     A            DEFJOBDLIB    10A  O  8 43COLOR(WHT)
+     A                                  9  2'Job queue:       . . . . .'
+     A            DSPJOBQ       10A  B  9 29COLOR(YLW)
+     A            DEFJOBQ       10A  O  9 42COLOR(WHT)
+     A                                 10 11'Library:. . . . .'
+     A            DSPJOBQLIB    10A  B 10 30COLOR(YLW)
+     A            DEFJOBQLIB    10A  O 10 43COLOR(WHT)
+     A                                 11  2'Job priority (ON JOBQ):. .'
+     A            DSPJOBPTY      5A  B 11 29COLOR(YLW)
+     A            DEFJOBPTY      5A  O 11 42COLOR(WHT)
+     A                                 12  2'Output priority (ON OUTQ):'
+     A            DSPOUTPTY      5A  B 12 29COLOR(YLW)
+     A            DEFOUTPTY      5A  O 12 42COLOR(WHT)
+     A                                 13  2'Print device:. . . . . . .'
+     A            DSPPRTDEV     10A  B 13 29COLOR(YLW)
+     A            DEFPRTDEV     10A  O 13 42COLOR(WHT)
+     A                                 14  2'Out queue:.  . . . . . . .'
+     A            DSPOUTQ       10A  B 14 29COLOR(YLW)
+     A            DEFOUTQ       10A  O 14 42COLOR(WHT)
+     A                                 15  6'Library: . . . . . . .'
+     A            DSPOUTQLIB    10A  B 15 30COLOR(YLW)
+     A            DEFOUTQLIB    10A  O 15 43COLOR(WHT)
+     A                                 16  2'User:. . . . . . . . . . .'
+     A            DSPRUNUSER    10A  B 16 29COLOR(YLW)
+     A            DEFRUNUSER    10A  O 16 42COLOR(WHT)
+     A                                 17  2'Print text:. . . . . . . .'
+     A            DSPPRTTXT     30A  B 17 29COLOR(YLW)
+     A            DEFPRTTXT     30A  O 18 42COLOR(WHT)
+     A                                 19  2'Routing data:'
+     A            DSPRTGDTA     60A  B 19 16COLOR(YLW)
+     A                                 20  2'Run Priority in SBS: . . .'
+     A            ATRJOBRUN      1A  P
+     A            DSPJOBRUN      5   B 20 29DSPATR(&ATRJOBRUN)
+     A                                      COLOR(YLW)
+     A                                 20 42'*Same'
+     A                                      COLOR(WHT)
+     A                                 20 49'11 - 99'
+     A          R JCSNEW3
+     A                                      CF03
+     A                                      CF12
+     A                                      PAGEDOWN
+     A                                      PAGEUP
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  7  2'System library list: . . .'
+     A            DSPSYSLIBL    10A  B  7 30COLOR(YLW)
+     A            DEFSYSLIBL    10A  O  7 44COLOR(WHT)
+     A                                  8  2'Current library: . . . . .'
+     A            DSPCURLIB     10A  B  8 30COLOR(YLW)
+     A            DEFCURLIB     10A  O  8 44COLOR(WHT)
+     A                                  9  2'Initial library list:. . .'
+     A            DSPINLLIBL    10A  B  9 30COLOR(YLW)
+     A            DEFINLLIBL    10A  O  9 44COLOR(WHT)
+     A                                 10  2'Message logging Level: . .'
+     A            DSPMSGLOGL     5A  B 10 30COLOR(YLW)
+     A            DEFMSGLOGL     5A  O 10 44COLOR(WHT)
+     A                                 11 15'Severity: . .'
+     A            DSPMSGLOGS     6A  B 11 30COLOR(YLW)
+     A            DEFMSGLOGS     6A  O 11 44COLOR(WHT)
+     A                                 12 19'Text: . .'
+     A            DSPMSGLOGT     7A  B 12 30COLOR(YLW)
+     A            DEFMSGLOGT     7A  O 12 44COLOR(WHT)
+     A                                 13  2'Log CL program commands: .'
+     A            DSPLOGCLPG     5A  B 13 30COLOR(YLW)
+     A            DEFLOGCLPG     5A  O 13 44COLOR(WHT)
+     A                                 14  2'Inquiry message reply: . .'
+     A            DSPINQMSGR     8A  B 14 30COLOR(YLW)
+     A            DEFINQMSGR     8A  O 14 44COLOR(WHT)
+     A                                 16  2'Allow display by WRKSBMJOB:'
+     A            DSPDSPSBMJ     4A  B 16 30COLOR(YLW)
+     A            DEFDSPSBMJ     4A  O 16 43COLOR(WHT)
+     A                                 18  2'Message queue: . . . . . .'
+     A            DSPMSGQ       10A  B 18 30COLOR(YLW)
+     A            DEFMSGQ       10A  O 18 43COLOR(WHT)
+     A                                 19  9'Library:. . . . . .'
+     A            DSPMSGQLIB    10A  B 19 32COLOR(YLW)
+     A            DEFMSGQLIB    10A  O 19 44COLOR(WHT)
+     A          R JCSMNT01
+     A                                      CF03
+     A                                      CF12
+     A                                      OVERLAY
+     A            OPTMAINT       2A  B 19  7COLOR(YLW)
+     A                                  9  7'1. Chainge the Settings.'
+     A                                 10  7'2. Change the JCS job1.'
+     A                                 11  7'3. Change the JCS job2.'
+     A                                 12  7'4. Edit the Run Classes.'
+     A                                 19  2'===>'
+     A                                 13  7'5. Edit default job description.'
+     A          R JCSMNT02
+     A                                      CF03
+     A                                      CF12
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  7  4'Seconds to wait to start checking -
+     A                                      jobs.'
+     A            ATRSLEEPTM     1A  P
+     A            X10SLEEPTM     2A  B  7 46DSPATR(&ATRSLEEPTM)
+     A                                      COLOR(YLW)
+     A                                  7 50'1 - 99'
+     A                                      COLOR(WHT)
+     A                                  9  4'Send informational message to QSYS-
+     A                                      OPR.'
+     A            ATRMSGINFO     1A  P
+     A            S10MSGINFO     1A  B  9 47DSPATR(&ATRMSGINFO)
+     A                                      COLOR(YLW)
+     A                                  9 51'Y/N'
+     A                                      COLOR(WHT)
+     A                                 11  4'Send a message when starting a job-
+     A                                      .'
+     A            ATRMSGSTR      1A  P
+     A            S10MSGSTR      1A  B 11 47DSPATR(&ATRMSGSTR)
+     A                                      COLOR(YLW)
+     A                                 11 51'Y/N'
+     A                                      COLOR(WHT)
+     A                                 12  4'Send a message when stopping a job-
+     A                                      .'
+     A            ATRMSGSTP      1A  P
+     A            S10MSGSTP      1A  B 12 47DSPATR(&ATRMSGSTP)
+     A                                      COLOR(YLW)
+     A                                 12 51'Y/N'
+     A                                      COLOR(WHT)
+     A                                 14  4'Create a print log of what the job-
+     A                                       does.'
+     A            ATRPRTMSG      1A  P
+     A            S10PRTMSG      1A  B 14 47DSPATR(&ATRPRTMSG)
+     A                                      COLOR(YLW)
+     A                                 14 51'Y/N'
+     A                                      COLOR(WHT)
+     A                                 18  9'Name of main job.'
+     A            ATRJOBNAM2     1A  P
+     A            S10JOBNAM2    10A  B 18 47DSPATR(&ATRJOBNAM2)
+     A                                      COLOR(YLW)
+     A                                 19  9'Name of helper job.'
+     A            ATRJOBNAM1     1A  P
+     A            S10JOBNAM1    10A  B 19 47DSPATR(&ATRJOBNAM1)
+     A                                      COLOR(YLW)
+     A                                 17  4'Dont chage after the system has be-
+     A                                      en running.'
+     A          R JCSMNT03
+     A                                      CF03
+     A                                      CF12
+     A                                      OVERLAY
+     A            OPTMAINT       2A  B 19  7COLOR(YLW)
+     A                                  9  7'1. Start the Server Jobs.'
+     A                                 10  7'2. Stop the Server Jobs.'
+     A                                 11  7'3. Stop the Server Jobs and all th-
+     A                                      e jobs it monitors.'
+     A                                 19  2'===>'
+     A                                 11 62'Use with care.'
+     A                                      COLOR(RED)
+     A          R JCSOVLTOP
+     A            ATRPGMNAME     1A  P
+     A            OUTPGMNAME    10A  O  1  3DSPATR(&ATRPGMNAME)
+     A            ATRTITLE1      1A  P
+     A            OUTTITLE1     50A  O  1 16DSPATR(&ATRTITLE1)
+     A            ATRSYSNAME     1A  P
+     A                                  1 73SYSNAME
+     A                                      DSPATR(&ATRSYSNAME)
+     A            ATRSCNNAME     1A  P
+     A            OUTSCNNAME    10A  O  2  3DSPATR(&ATRSCNNAME)
+     A            ATRTITLE2      1A  P
+     A            OUTTITLE2     50A  O  2 16DSPATR(&ATRTITLE2)
+     A            ATRDATE        1A  P
+     A                                  2 73DATE
+     A                                      EDTCDE(Y)
+     A                                      DSPATR(&ATRDATE)
+     A            ATRTIME        1A  P
+     A                                  3 73TIME
+     A                                      DSPATR(&ATRTIME)
+     A            ATRUSER        1A  P
+     A                                  3  3USER
+     A                                      DSPATR(&ATRUSER)
+     A            ATRCMDLINE     1A  P
+     A            OUTCMDLINE    70A  O  4  6DSPATR(&ATRCMDLINE)
+     A          R JCSOVLBOT
+     A                                      OVERLAY
+     A            ATRFLINE       1A  P
+     A            OUTFLINE      70A  O 23  4DSPATR(&ATRFLINE)
+     A          R MSGSFL                    SFL
+     A                                      SFLMSGRCD(24)
+     A            MSGKEY                    SFLMSGKEY
+     A            SDS_PROC                  SFLPGMQ
+     A
+     A          R MSGCTL                    SFLCTL(MSGSFL)
+     A                                      OVERLAY
+     A                                      SFLSIZ(2)
+     A                                      SFLPAG(1)
+     A                                      SFLDSP
+     A                                      SFLDSPCTL
+     A                                      SFLINZ
+     A N99                                  SFLEND
+     A            SDS_PROC                  SFLPGMQ
+     A
+     A
+     A
+     A

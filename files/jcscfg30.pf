@@ -1,0 +1,14 @@
+     A**********T*Name******RLen++TDpB******Functions***************************
+     A**********R*F***************A*********C***********************************
+     A
+     A          R JCSCFG30R1
+
+     A            C30JOBNAME    10A         COLHDG('JOB NAME')
+     A                                      ALIAS(JCSCFG30_JOB_NAME)
+
+     A            C30RUNPTY      5A         COLHDG('RUN PRIORITY')
+     A                                      ALIAS(JCSCFG30_RUN_PRIORITY)
+
+     A            C30DESC       40A         COLHDG('DESCRIPTION')
+     A                                      ALIAS(JCSCFG30_DESCRIPTION)
+

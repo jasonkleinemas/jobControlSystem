@@ -1,0 +1,46 @@
+     A**********T*Name******RLen++TDpB******Functions***************************
+     A**********R*F***************A*********C***********************************
+     A
+     A                                      UNIQUE
+     A          R JCSCFG10R1
+     A
+     A            C10ACTIVE      1A         COLHDG('Active'      'Deactive'    )
+     A            C10DESC       50A         COLHDG('Description'               )
+     A
+     A            C10RUNCMD    300A         COLHDG('Command'     'To Run' 'Job')
+     A            C10JOBNAME    10A         COLHDG('Job'         'Name'        )
+     A            C10JOBD       10A         COLHDG('Job'         'Description' )
+     A            C10JOBDLIB    10A         COLHDG('Job'         'Description' +
+     A                                                           'Library'     )
+     A            C10JOBQ       10A         COLHDG('Job' 'Queue' 'Name'        )
+     A            C10JOBQLIB    10A         COLHDG('Job' 'Queue' 'Lirary'      )
+     A            C10JOBPTY      5A         COLHDG('Job' 'Priority' 'On JOBQ'  )
+     A            C10OUTPTY      5A         COLHDG('Output' 'Priority'         +
+     A                                                                'On OUTQ')
+     A            C10PRTDEV     10A         COLHDG('Print' 'Device'            )
+     A            C10OUTQ       10A         COLHDG('Out' 'Queue' 'Name'        )
+     A            C10OUTQLIB    10A         COLHDG('Out' 'Queue' 'Library'     )
+     A            C10RUNUSER    10A         COLHDG('User' 'Name'               )
+     A            C10PRTTXT     30A         COLHDG('Print' 'Text'              )
+     A            C10RTGDTA     80A         COLHDG('Routing' 'Data'            )
+     A            C10SYSLIBL    10A         COLHDG('System' 'Library' 'List'   )
+     A            C10CURLIB     10A         COLHDG('Current' 'Library'         )
+     A            C10INLLIBL    10A         COLHDG('Initial' 'Library' 'List'  )
+     A            C10MSGLOGL     5A         COLHDG('Message' 'Logging' 'Level' )
+     A            C10MSGLOGS     6A         COLHDG('Message' 'Logging'         +
+     A                                             'Severity'                  )
+     A            C10MSGLOGT     7A         COLHDG('Message' 'Logging' 'Text'  )
+     A            C10LOGCLPG     5A         COLHDG('Log CL' 'Program'          +
+     A                                             'Commands'                  )
+     A            C10INQMSGR     8A         COLHDG('Inquiry' 'message' 'reply' )
+     A            C10DSPSBMJ     4A         COLHDG('Allow' 'Display'           +
+     A                                             'by WRKSBMJOB'              )
+     A            C10MSGQ       10A         COLHDG('Message' 'queue'           )
+     A            C10MSGQLIB    10A         COLHDG('Message' 'queue' 'Library' )
+     A
+     A            C10KILLCMD   300A         COLHDG('Command' 'To Kill' 'Job'   )
+     A            C10RUNCLAS    10A         COLHDG('Run Class' 'Match To'      +
+     A                                             'JCSCFG20'                  )
+     A
+     A          K C10JOBNAME
+     A

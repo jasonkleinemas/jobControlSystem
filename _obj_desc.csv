@@ -1,0 +1,29 @@
+
+#                             1         2         3         4         5         6         7         8
+#                    12345678901234567890123456789012345678901234567890 123456789012345678901234567890
+charhex.sqlrpgle    ,Test sql functions
+t_dspf.dspf         ,Test DSPF compile
+
+
+jcscfg10.pf   ,Job details. Order by Job Name
+jcscfg10l1.lf ,Job details. Order by Description
+jcscfg10l2.lf ,Job details. Order by Job Name Active Only
+jcscfg20.pf   ,Job schedules. Order by Class
+jcscfg30.pf   ,Job list.
+jcscfg30l1.lf ,Job list. Order by Job Name
+jcsdsp01.dspf ,
+jcsdsp03.dspf ,
+jcsset10.pf   ,Job settings.
+jcswrk10.pf   ,Job running infomation. Order By Job Name
+
+jcsmain005.cl ,
+jcsmain007.cl ,
+jcsmain008.cl ,
+jcsmain010.cl ,
+jcsmain020.cl ,
+jcsmain050.cl ,
+
+jcsmain.rpgle  ,Starts and maked sure jcsmain020 is running.
+jcsmain.rpgle  ,Controls all the jobs.
+jcscons10.rpgle   ,
+jcscons30.rpgle   ,

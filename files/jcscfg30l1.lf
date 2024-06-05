@@ -1,0 +1,14 @@
+     A**********T*Name******RLen++TDpB******Functions***************************
+     A**********R*F***************A*********C***********************************
+     A
+     A                                      UNIQUE
+     A          R JCSCFG30R                 PFILE(JCSCFG30)
+
+     A            C30JOBNAME
+
+     A            C30RUNPTY
+
+     A            C30DESC
+
+     A          K C30JOBNAME
+     A

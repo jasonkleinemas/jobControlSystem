@@ -1,0 +1,9 @@
+     A**********T*Name******RLen++TDpB******Functions***************************
+     A**********R*F***************A*********C***********************************
+     A
+     A          R JCSCFG10R1                PFILE(JCSCFG10)
+     A
+     A          K C10JOBNAME
+     A          S C10ACTIVE                 VALUES('A')
+     A
+     A

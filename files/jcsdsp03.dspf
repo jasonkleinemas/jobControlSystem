@@ -1,0 +1,235 @@
+     A*%%TS  SD  20021215  202858  JASONK      REL-V5R2M0  5722-WDS
+     A****************************************************************
+     A*                                                              *
+     A*                                                              *
+     A*                                                              *
+     A*                                                              *
+     A****************************************************************
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      PRINT
+     A                                      ALTHELP(CA01)
+     A                                      HELP
+     A          R JCSSFL02                  SFL
+     A*%%TS  SD  20021125  190236  JASONK      REL-V4R4M0  5769-PW1
+     A            CLSOPT         1A  B 10  3COLOR(YLW)
+     A            CLSDEC        50A  O 10  5COLOR(WHT)
+     A            HIDCLSNAME    10A  H
+     A          R JCSCTL02                  SFLCTL(JCSSFL02)
+     A*%%TS  SD  20021125  190236  JASONK      REL-V4R4M0  5769-PW1
+     A                                      SFLSIZ(0011)
+     A                                      SFLPAG(0010)
+     A                                      ROLLUP
+     A                                      CF03
+     A                                      CF05
+     A                                      CF06
+     A                                      CF12
+     A                                      OVERLAY
+     A                                      ERASE(JCSSFL02)
+     A  30                                  SFLDSP
+     A  35                                  SFLDSPCTL
+     A  33                                  SFLCLR
+     A  34                                  SFLEND(*MORE)
+     A            CTL02REC#      4S 0H      SFLRCDNBR
+     A            ATRCURR        1A  P
+     A                                  7  3'Current:'
+     A                                      DSPATR(&ATRCURR)
+     A            ATRCURDES      1A  P
+     A            CLSCURDES     50A  O  7 12COLOR(WHT)
+     A                                      DSPATR(&ATRCURDES)
+     A                                  9  6'Description'
+     A          R JCSEDT1
+     A*%%TS  SD  20021125  190949  JASONK      REL-V4R4M0  5769-PW1
+     A                                      CF03
+     A                                      CF12
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  7 15'Class Name:'
+     A            ATRRUNCLAS     1A  P
+     A            DSPRUNCLAS    10A  B  7 27COLOR(YLW)
+     A                                      DSPATR(&ATRRUNCLAS)
+     A                                  9  8'Class Description:'
+     A            ATRDESC        1A  P
+     A            DSPDESC       50A  B  9 27COLOR(YLW)
+     A                                      DSPATR(&ATRDESC)
+     A                                      CHECK(LC)
+     A                                 12 20'Run Times '
+     A                                 11 36'Start'
+     A                                 11 44'Stop'
+     A                                 12 32'24 Hour time format'
+     A                                 13 24'Monday:'
+     A            ATRMON_BEG     1A  P
+     A            DSPMON_BEG     5A  B 13 36COLOR(YLW)
+     A                                      DSPATR(&ATRMON_BEG)
+     A            ATRMON_END     1A  P
+     A            DSPMON_END     5A  B 13 44COLOR(YLW)
+     A                                      DSPATR(&ATRMON_END)
+     A                                 14 24'Tuesday:'
+     A            ATRTUE_BEG     1A  P
+     A            DSPTUE_BEG     5A  B 14 36COLOR(YLW)
+     A                                      DSPATR(&ATRTUE_BEG)
+     A            ATRTUE_END     1A  P
+     A            DSPTUE_END     5A  B 14 44COLOR(YLW)
+     A                                      DSPATR(&ATRTUE_END)
+     A                                 15 24'Wednesday:'
+     A            ATRWED_BEG     1A  P
+     A            DSPWED_BEG     5A  B 15 36COLOR(YLW)
+     A                                      DSPATR(&ATRWED_BEG)
+     A            ATRWED_END     1A  P
+     A            DSPWED_END     5A  B 15 44COLOR(YLW)
+     A                                      DSPATR(&ATRWED_END)
+     A                                 16 24'Thursday:'
+     A            ATRTHR_BEG     1A  P
+     A            DSPTHR_BEG     5A  B 16 36COLOR(YLW)
+     A                                      DSPATR(&ATRTHR_BEG)
+     A            ATRTHR_END     1A  P
+     A            DSPTHR_END     5A  B 16 44COLOR(YLW)
+     A                                      DSPATR(&ATRTHR_END)
+     A                                 17 24'Friday:'
+     A            ATRFRI_BEG     1A  P
+     A            DSPFRI_BEG     5A  B 17 36COLOR(YLW)
+     A                                      DSPATR(&ATRFRI_BEG)
+     A            ATRFRI_END     1A  P
+     A            DSPFRI_END     5A  B 17 44COLOR(YLW)
+     A                                      DSPATR(&ATRFRI_END)
+     A                                 18 24'Saturday:'
+     A            ATRSAT_BEG     1A  P
+     A            DSPSAT_BEG     5A  B 18 36COLOR(YLW)
+     A                                      DSPATR(&ATRSAT_BEG)
+     A            ATRSAT_END     1A  P
+     A            DSPSAT_END     5A  B 18 44COLOR(YLW)
+     A                                      DSPATR(&ATRSAT_END)
+     A                                 19 24'Sunday:'
+     A            ATRSUN_BEG     1A  P
+     A            DSPSUN_BEG     5A  B 19 36COLOR(YLW)
+     A                                      DSPATR(&ATRSUN_BEG)
+     A            ATRSUN_END     1A  P
+     A            DSPSUN_END     5A  B 19 44COLOR(YLW)
+     A                                      DSPATR(&ATRSUN_END)
+     A          R JCSDSP1
+     A*%%TS  SD  20021125  190949  JASONK      REL-V4R4M0  5769-PW1
+     A                                      CF03
+     A                                      CF12
+     A                                      OVERLAY
+     A                                  7 15'Class Name:'
+     A            DSPRUNCLAS    10A  O  7 27COLOR(WHT)
+     A                                  9  8'Class Description:'
+     A            DSPDESC       50A  O  9 27COLOR(WHT)
+     A                                 12 20'Run Times '
+     A                                 11 36'Start'
+     A                                 11 44'Stop'
+     A                                 12 32'24 Hour time format'
+     A                                 13 24'Monday:'
+     A            DSPMON_BEG     5A  O 13 36COLOR(WHT)
+     A            DSPMON_END     5A  O 13 44COLOR(WHT)
+     A                                 14 24'Tuesday:'
+     A            DSPTUE_BEG     5A  O 14 36COLOR(WHT)
+     A            DSPTUE_END     5A  O 14 44COLOR(WHT)
+     A                                 15 24'Wednesday:'
+     A            DSPWED_BEG     5A  O 15 36COLOR(WHT)
+     A            DSPWED_END     5A  O 15 44COLOR(WHT)
+     A                                 16 24'Thursday:'
+     A            DSPTHR_BEG     5A  O 16 36COLOR(WHT)
+     A            DSPTHR_END     5A  O 16 44COLOR(WHT)
+     A                                 17 24'Friday:'
+     A            DSPFRI_BEG     5A  O 17 36COLOR(WHT)
+     A            DSPFRI_END     5A  O 17 44COLOR(WHT)
+     A                                 18 24'Saturday:'
+     A            DSPSAT_BEG     5A  O 18 36COLOR(WHT)
+     A            DSPSAT_END     5A  O 18 44COLOR(WHT)
+     A                                 19 24'Sunday:'
+     A            DSPSUN_BEG     5A  O 19 36COLOR(WHT)
+     A            DSPSUN_END     5A  O 19 44COLOR(WHT)
+     A          R JCSCPY1
+     A*%%TS  SD  20021125  190949  JASONK      REL-V4R4M0  5769-PW1
+     A                                      CF03
+     A                                      CF12
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  8 14'Class Name:'
+     A            DSPRUNCLAS    10A  O  8 26COLOR(WHT)
+     A                                 10  7'Class Description:'
+     A            DSPDESC       50A  O 10 26COLOR(WHT)
+     A                                 13 10'New Class Name:'
+     A            ATRRUNCLAS     1A  P
+     A            NEWRUNCLAS    10A  B 13 26COLOR(YLW)
+     A                                      DSPATR(&ATRRUNCLAS)
+     A                                 15  3'New Class Description:'
+     A            ATRDESC        1A  P
+     A            NEWDESC       50A  B 15 26COLOR(YLW)
+     A                                      DSPATR(&ATRDESC)
+     A                                      CHECK(LC)
+     A          R JCSDLT1
+     A*%%TS  SD  20021125  190949  JASONK      REL-V4R4M0  5769-PW1
+     A                                      CF03
+     A                                      CF12
+     A                                      RTNCSRLOC(*RECNAME &DSPEDT1REC &DSP-
+     A                                      EDT1FLD)
+     A                                      CSRLOC(DSPEDT1LIN DSPEDT1COL)
+     A                                      OVERLAY
+     A            DSPEDT1REC    10A  H
+     A            DSPEDT1FLD    10A  H
+     A            DSPEDT1LIN     3S 0H
+     A            DSPEDT1COL     3S 0H
+     A                                  9 12'Class Name:'
+     A            DSPRUNCLAS    10A  O  9 24COLOR(WHT)
+     A                                 11  5'Class Description:'
+     A            DSPDESC       50A  O 11 24COLOR(WHT)
+     A          R JCSOVLTOP
+     A*%%TS  SD  20021125  190236  JASONK      REL-V4R4M0  5769-PW1
+     A            ATRPGMNAME     1A  P
+     A            OUTPGMNAME    10A  O  1  3DSPATR(&ATRPGMNAME)
+     A            ATRTITLE1      1A  P
+     A            OUTTITLE1     50A  O  1 16DSPATR(&ATRTITLE1)
+     A            ATRSYSNAME     1A  P
+     A                                  1 73SYSNAME
+     A                                      DSPATR(&ATRSYSNAME)
+     A            ATRSCNNAME     1A  P
+     A            OUTSCNNAME    10A  O  2  3DSPATR(&ATRSCNNAME)
+     A            ATRTITLE2      1A  P
+     A            OUTTITLE2     50A  O  2 16DSPATR(&ATRTITLE2)
+     A            ATRDATE        1A  P
+     A                                  2 73DATE
+     A                                      EDTCDE(Y)
+     A                                      DSPATR(&ATRDATE)
+     A            ATRTIME        1A  P
+     A                                  3 73TIME
+     A                                      DSPATR(&ATRTIME)
+     A            ATRUSER        1A  P
+     A                                  3  3USER
+     A                                      DSPATR(&ATRUSER)
+     A            ATRCMDLINE     1A  P
+     A            OUTCMDLINE    70   O  5  3DSPATR(&ATRCMDLINE)
+     A          R JCSOVLBOT
+     A*%%TS  SD  20021125  180720  JASONK      REL-V4R4M0  5769-PW1
+     A                                      OVERLAY
+     A
+     A            ATRFLINE       1A  P
+     A            OUTFLINE      70   O 23  4DSPATR(&ATRFLINE)
+     A          R MSGSFL                    SFL
+     A*%%TS  SD  20021215  202858  JASONK      REL-V5R2M0  5722-WDS
+     A                                      SFLMSGRCD(24)
+     A            MSGKEY                    SFLMSGKEY
+     A            SDS_PROC                  SFLPGMQ(10)
+     A          R MSGCTL                    SFLCTL(MSGSFL)
+     A*%%TS  SD  20021215  202858  JASONK      REL-V5R2M0  5722-WDS
+     A                                      OVERLAY
+     A                                      SFLDSP
+     A                                      SFLDSPCTL
+     A                                      SFLINZ
+     A N99                                  SFLEND
+     A                                      SFLSIZ(0002)
+     A                                      SFLPAG(0001)
+     A            SDS_PROC                  SFLPGMQ(10)

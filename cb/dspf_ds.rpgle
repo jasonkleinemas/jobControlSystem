@@ -1,0 +1,21 @@
+**FREE
+dcl-ds dsJcsSfl01   likerec(JCSDSP01.JCSSFL01 :*all);
+dcl-ds dsJcsCtl01   likerec(JCSDSP01.JCSCTL01 :*all);
+dcl-ds dsJcsCopy01  likerec(JCSDSP01.JCSCPY1  :*all);
+dcl-ds dsJcsDel01   likerec(JCSDSP01.JCSDLT1  :*all);
+dcl-ds dsJcsDsp01   likerec(JCSDSP01.JCSDSP1  :*all);
+dcl-ds dsJcsDsp02   likerec(JCSDSP01.JCSDSP2  :*all);
+dcl-ds dsJcsDsp03   likerec(JCSDSP01.JCSDSP3  :*all);
+dcl-ds dsJcsEdit01  likerec(JCSDSP01.JCSEDT1  :*all);
+dcl-ds dsJcsEdit02  likerec(JCSDSP01.JCSEDT2  :*all);
+dcl-ds dsJcsEdit03  likerec(JCSDSP01.JCSEDT3  :*all);
+dcl-ds dsJcsNew01   likerec(JCSDSP01.JCSNEW1  :*all);
+dcl-ds dsJcsNew02   likerec(JCSDSP01.JCSNEW2  :*all);
+dcl-ds dsJcsNew03   likerec(JCSDSP01.JCSNEW3  :*all);
+dcl-ds dsJcsMaint01 likerec(JCSDSP01.JCSMNT01 :*all);
+dcl-ds dsJcsMaint02 likerec(JCSDSP01.JCSMNT02 :*all);
+dcl-ds dsJcsMaint03 likerec(JCSDSP01.JCSMNT03 :*all);
+dcl-ds dsJcsOvlTop  likerec(JCSDSP01.JCSOVLTOP:*all);
+dcl-ds dsJcsOvlBot  likerec(JCSDSP01.JCSOVLBOT:*all);
+dcl-ds dsJclMsgSfl  likerec(JCSDSP01.MSGSFL:*all);
+dcl-ds dsJclMsgCtl  likerec(JCSDSP01.MSGCTL:*all);

@@ -1,0 +1,25 @@
+     A**********T*Name******RLen++TDpB******Functions***************************
+     A**********R*F***************A*********C***********************************
+     A
+     A                                      UNIQUE
+     A          R JCSCFG20R1
+     A
+     A            C20RUNCLAS    10A         COLHDG('Run Class')
+     A            C20DESC       50A         COLHDG('Description')
+     A            C20MON_BEG     4S 0       COLHDG('Mon Start' 'Run Time')
+     A            C20MON_END     4S 0       COLHDG('Mon Stop'  'Run Time')
+     A            C20TUE_BEG     4S 0       COLHDG('Tue Start' 'Run Time')
+     A            C20TUE_END     4S 0       COLHDG('Tue Stop'  'Run Time')
+     A            C20WED_BEG     4S 0       COLHDG('Wed Start' 'Run Time')
+     A            C20WED_END     4S 0       COLHDG('Wed Stop'  'Run Time')
+     A            C20THR_BEG     4S 0       COLHDG('Thr Start' 'Run Time')
+     A            C20THR_END     4S 0       COLHDG('Thr Stop'  'Run Time')
+     A            C20FRI_BEG     4S 0       COLHDG('Fri Start' 'Run Time')
+     A            C20FRI_END     4S 0       COLHDG('Fri Stop'  'Run Time')
+     A            C20SAT_BEG     4S 0       COLHDG('Sat Start' 'Run Time')
+     A            C20SAT_END     4S 0       COLHDG('Sat Stop'  'Run Time')
+     A            C20SUN_BEG     4S 0       COLHDG('Sun Start' 'Run Time')
+     A            C20SUN_END     4S 0       COLHDG('Sun Stop'  'Run Time')
+     A
+     A          K C20RUNCLAS
+     A

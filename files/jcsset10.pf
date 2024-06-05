@@ -1,0 +1,21 @@
+     A**********T*Name******RLen++TDpB******Functions***************************
+     A**********R*F***************A*********C***********************************
+     A
+     A
+     A          R JCSSET10R1
+     A
+     A            S10SLEEPTM     3S 0       COLHDG('Sleep' 'Time In' 'Seconds')
+     A            S10MSGINFO     1A         COLHDG('Send General'              +
+     A                                             'Messages to' 'Qsysopr'    )
+     A            S10MSGSTR      1A         COLHDG('Send Message'              +
+     A                                                 'When Starting' 'A Job')
+     A
+     A            S10MSGSTP      1A         COLHDG('Send Message'              +
+     A                                                  'When Stoping' 'A Job')
+     A
+     A            S10PRTMSG      1A         COLHDG('Create' 'Printed' 'run log')
+     A
+     A            S10JOBNAM1    10A         COLHDG('Name of' 'helper' 'Job')
+     A            S10JOBNAM2    10A         COLHDG('Name of' 'Main' 'job')
+     A
+     A
